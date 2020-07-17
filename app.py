@@ -1,11 +1,35 @@
-# Import your Game class
 from phrasehunter import game
 
-# Create your Dunder Main statement.
+
+my_game = None
+my_phrases = [
+    'Happy Thoughts', 
+    'Create your own sunshine', 
+    'When one door opens another one closes', 
+    'Stay Positive', 
+    'Anything is possible'
+]
+
+
+def play_phrasehunter():
+    my_game = game.Game(phrases=my_phrases)
+    my_game.start_game()
+
+
+def play_again():
+    while True:
+        option = input("\nWould you like to play again? (Y/N) ")
+        if option.lower() == 'y':
+            play_phrasehunter()
+            continue
+        elif option.lower() == 'n':
+            print("\nThank you for playing! Goodbye :)")
+            break
+        else:
+            print("\nUh-Oh, Please enter either 'Y' or 'N' to continue.")
+
+
 #===================================MAIN PROGRAM===================================
 if __name__ == '__main__':
-# Inside Dunder Main:
-## Create an instance of your Game class
-	game = game.Game(phrase=['Python', 'Javascript', 'Web Design'])
-## Start your game by calling the instance method that starts the game loop
-	game.start_game()
+    play_phrasehunter()
+    play_again()
